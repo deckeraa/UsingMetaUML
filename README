@@ -22,3 +22,14 @@ These files are in ./lab2.
 ---------------------
 
 I have now finished the Lab 2 diagram of the library system.
+
+2/25/12
+---------------------
+
+Having to place elements by hand seems sort of tedious.
+I am going to try to alleviate this somewhat by using relative positioning.
+As an experiment, I will try to go from nothing to a finished diagram in the
+least amount of time possible.
+I wrote a small script to do all the file setup and Makefile generation for me.
+
+Starting at 9:41.
