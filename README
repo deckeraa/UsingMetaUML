@@ -3,7 +3,7 @@ Hopefully I will end up with some working examples and Makefiles to go with them
 I will also use this README as a running log of the project.
 
 I'm following a blog post at 
-http://www.cs.bgu.ac.il/~gwiener/software-engineering/how-to-embed-uml-in-latex/````.
+http://www.cs.bgu.ac.il/~gwiener/software-engineering/how-to-embed-uml-in-latex/.
 Based off its instructions, I got a basic UML example working.
 It is in the folder ./example.
 
