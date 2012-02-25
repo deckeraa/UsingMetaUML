@@ -1,0 +1,68 @@
+\documentclass{article}
+
+% For embedding of MetaPost code
+\usepackage{emp}
+
+% These packages aren't necessary for MetaUML
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\setcounter{secnumdepth}{-1}
+
+\begin{document}
+
+% MetaUML setup
+\begin{empfile}
+\begin{empcmds}
+input metauml;
+\end{empcmds}
+
+% Begin actual document here
+\section{ Lab 2 }
+% Some testing code
+% borrowed from 
+% http://www.cs.bgu.ac.il/~gwiener/software-engineering/how-to-embed-uml-in-latex/
+\begin{figure}[h!]
+\centering
+\begin{emp}[classdiag](20, 20)
+%Class.A("A")()();
+%Class.B("B")()();
+%B.e = A.w + (-20, 0);
+%drawObjects(A, B);
+%link(inheritance)(B.e -- A.w);
+Usecase.checkOutBook("Check Out Book");
+checkOutBook.c = (0,0);
+Usecase.renewBook("Renew Book");
+renewBook.c = (0,60);
+Usecase.returnBook("Return Book");
+returnBook.c = (0,-60);
+
+Actor.patron("Patron");
+patron.e = checkOutBook.w + (-60,0);
+Actor.librarian("Librarian");
+librarian.w = checkOutBook.e + (60,0);
+
+drawObject(checkOutBook);
+drawObject(renewBook);
+drawObject(returnBook);
+drawObject(patron);
+drawObject(librarian);
+
+link(association)(patron.e -- checkOutBook.w);
+link(association)(librarian.w -- checkOutBook.e);
+link(association)(patron.e -- renewBook.w);
+link(association)(librarian.w -- renewBook.e);
+link(association)(librarian.w -- returnBook.e);
+
+Note.header("Aaron Decker","2/24/12","SE 273 Lab 2");
+header.c = (120,60);
+drawObject(header);
+\end{emp}
+\caption{A class diagram}
+\end{figure}
+% End of testing code
+
+
+\end{empfile}
+\end{document}
