@@ -33,3 +33,12 @@ least amount of time possible.
 I wrote a small script to do all the file setup and Makefile generation for me.
 
 Starting at 9:41.
+Finishing at 9:58.
+
+That's 18 minutes from start to finish with four actors and four use cases.
+While definitely not as fast as I would like, I think that that time is comparable to
+what I spent on this same diagram yesterday using Rational Rose.
+Most of the time is spent thinking about the diagram and not typing (or clicking, in the case of Rational Rose).
+I worry somewhat about program complexity and maintainability with the positioning.
+What would be nice is a system where one defined the associations and the system auto-routed everything.
+I may have to give more thought to that in the future.

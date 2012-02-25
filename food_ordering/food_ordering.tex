@@ -1,0 +1,71 @@
+\documentclass{article}
+
+% For embedding of MetaPost code
+\usepackage{emp}
+
+% These packages aren't necessary for MetaUML
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\setcounter{secnumdepth}{-1}
+
+\begin{document}
+
+% MetaUML setup
+\begin{empfile}
+\begin{empcmds}
+input metauml;
+\end{empcmds}
+
+% Begin actual document here
+\section{ Food Ordering Use Case Diagram }
+% Some testing code
+% borrowed from 
+% http://www.cs.bgu.ac.il/~gwiener/software-engineering/how-to-embed-uml-in-latex/
+\begin{figure}
+\centering
+\begin{emp}[classdiag](19, 20)
+% Order Food
+Usecase.orderFood("Order Food");
+orderFood.c = (0,0);
+Actor.appUser("App User");
+appUser.e = orderFood.w + (-50,0);
+
+% Process Order
+Usecase.processOrder("Process Order");
+processOrder.c = (0,50);
+Actor.orderTaker("Order Taker");
+orderTaker.e = processOrder.w + (-50,0);
+
+% Complete Order
+Usecase.completeOrder("Complete Order");
+completeOrder.c = (0,-50);
+Actor.lineManager("Line Manager");
+lineManager.e = completeOrder.w + (-60,0);
+Actor.foodServicesDirector("Food Services Director");
+foodServicesDirector.e = completeOrder.w + (-60, -60);
+
+% Blacklist Student
+Usecase.blacklistStudent("Blacklist Student");
+blacklistStudent.w = foodServicesDirector.e + (60,0);
+
+drawObjects(appUser,orderFood);
+drawObjects(orderTaker,processOrder);
+drawObjects(lineManager,completeOrder,foodServicesDirector);
+drawObject(blacklistStudent);
+
+link(association)(appUser.e -- orderFood.w);
+link(association)(orderTaker.e -- processOrder.w);
+link(association)(lineManager.e -- completeOrder.w);
+link(association)(appUser.e -- completeOrder.nw);
+link(association)(foodServicesDirector.ne -- completeOrder.sw);
+link(association)(foodServicesDirector.e -- blacklistStudent.w);
+\end{emp}
+\caption{Food Ordering Use Case Diagram}
+\end{figure}
+% End of testing code
+
+
+\end{empfile}
+\end{document}
